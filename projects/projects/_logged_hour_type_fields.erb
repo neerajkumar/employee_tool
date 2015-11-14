@@ -1,0 +1,12 @@
+<br />
+<div class="form-group col-sm-12">
+	<label for="loggedHourType" class="col-sm-4 control-label">Logged Hour Type</label>
+	<div class="row col-sm-8">
+	<div class="col-sm-5">
+		<%= f.text_field :name, autofocus: false, id: "loggedHourType", class: "form-control" %>
+	</div>
+	<div class="col-sm-3">
+		<%= link_to_remove_association "Remove", f -%>
+	</div>
+	</div>
+</div>	

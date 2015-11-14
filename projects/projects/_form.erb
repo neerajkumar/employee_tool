@@ -1,0 +1,22 @@
+<div class="form-group col-sm-12">
+	<label for="projectName" class="col-sm-4 control-label">Name</label>
+	<div class="col-sm-8">
+		<%= f.text_field :name, autofocus: true, id: "projectName", class: "form-control" %>
+	</div>
+</div>
+
+<div class="form-group pull-right">
+	<div class="col-sm-12">
+		<%= link_to_add_association "Add Logged Hour Type", f, :logged_hour_types, class: "btn btn-primary btn-xs pull-right" -%>
+	</div>
+</div>
+
+<%= f.fields_for :logged_hour_types do |logged_hour_type| -%>
+	<%= render "logged_hour_type_fields", f: logged_hour_type -%>
+<% end %>
+
+<div class="form-group">
+	<div class="col-sm-12">
+		<%= f.submit "#{button_text}", class: "pull-right btn btn-default btn-primary" -%>
+	</div>
+</div>

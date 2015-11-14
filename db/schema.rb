@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105175747) do
+ActiveRecord::Schema.define(version: 20151114095656) do
 
   create_table "employees", force: :cascade do |t|
     t.string   "first_name",             limit: 255
@@ -36,6 +36,34 @@ ActiveRecord::Schema.define(version: 20151105175747) do
   add_index "employees", ["email"], name: "index_employees_on_email", unique: true, using: :btree
   add_index "employees", ["portal_id"], name: "index_employees_on_portal_id", unique: true, using: :btree
   add_index "employees", ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true, using: :btree
+
+  create_table "employees_projects", id: false, force: :cascade do |t|
+    t.integer  "employee_id", limit: 4
+    t.integer  "project_id",  limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "logged_hour_types", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "project_id", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "logged_hours", force: :cascade do |t|
+    t.integer  "hours",            limit: 4
+    t.datetime "logger_date"
+    t.integer  "employee_id",      limit: 4
+    t.integer  "logged_hour_type", limit: 4
+    t.datetime "logged_to_date"
+    t.boolean  "period"
+    t.text     "description",      limit: 65535
+    t.datetime "logged_from_date"
+    t.integer  "project_id",       limit: 4
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string   "name",       limit: 255

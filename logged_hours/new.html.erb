@@ -1,0 +1,15 @@
+<div class="modal fade bs-log-work-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="row">
+				<div class="col-md-9 col-md-offset-1">
+					<h2>Log Work</h2>
+					<hr>
+					<%= form_for(@logged_hour, url: "/logged_hours", html: {class: "form-horizontal", method: :post}) do |f| %>
+						<%= render partial: 'logged_hours/form', locals: {f: f, button_text: "Log Work"} %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

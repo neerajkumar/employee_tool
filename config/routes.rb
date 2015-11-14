@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+
   resources :projects
+  resources :logged_hours
+  
   devise_for :employees, controllers: { registrations: "employees/registrations", sessions: "employees/sessions" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
