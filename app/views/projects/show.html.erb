@@ -4,11 +4,11 @@
 </div>
 
 <div class="col-md-3 col-md-offset-1"><%= link_to "Back", projects_path, class: "btn btn-default" -%></div>
-<div class="col-md-9 col-md-offset-3">
+<div class="col-md-12 col-md-offset-2">
   <h1><%= @project.name -%></h1>
   <div class="row">
 
-    <div class="col-md-6 col-md-offset-1">
+    <div class="col-md-7 col-md-offset-1">
       <%= link_to "Log Work", "#", class: "btn btn-default btn-primary pull-right", data: {toggle: "modal", target: ".bs-log-work-modal-lg"} -%>
       <ul>
 	<% for member in @members %>

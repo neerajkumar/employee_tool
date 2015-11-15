@@ -27,11 +27,19 @@ gem 'devise'
 gem 'mysql2', '~> 0.3.13'
 gem 'cocoon'
 gem 'bootstrap-datetimepicker-rails'
+gem 'unicorn'
 
 group :development do
   gem 'pry-rails'
-  gem 'capistrano-rails'
-  gem 'rvm-capistrano'
+  gem 'capistrano', '~> 3.1.0'
+  # cap tasks to manage puma application server
+  gem 'capistrano-puma', require: false
+  gem 'capistrano-rails',   '~> 1.1', require: false
+  gem 'capistrano-bundler', '~> 1.1', require: false
+  gem 'capistrano-rvm',   '~> 0.1', require: false
+  gem 'capistrano3-unicorn'
+  # gem 'capistrano-rails'
+  # gem 'rvm-capistrano'
 end
 
 gem 'bootstrap-sass', :git => 'https://github.com/twbs/bootstrap-sass.git', :branch => 'next'
