@@ -25,3 +25,4 @@ test:
 production:
   <<: *default
   database: employee_tool_production
+  password: password
