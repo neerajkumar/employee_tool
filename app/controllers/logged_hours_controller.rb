@@ -21,7 +21,8 @@ class LoggedHoursController < ApplicationController
   end
 
   def create
-    @logged_hour = LoggedHour.new(logged_hour_params)
+    project = Project.find(params[:logged_hour][:project_id])
+    @logged_hour = project.logged_hour_types.first.logged_hours.new(logged_hour_params)
     @logged_hour.save
     respond_with(@logged_hour)
   end
@@ -42,6 +43,6 @@ class LoggedHoursController < ApplicationController
     end
 
     def logged_hour_params
-      params.require(:logged_hour).permit(:period, :logged_from_date, :logged_to_date, :hours, :description, :project_id)
+      params.require(:logged_hour).permit(:period, :logger_date, :employee_id, :logged_hour_type_id, :logged_from_date, :logged_to_date, :hours, :description, :project_id)
     end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151114095656) do
+ActiveRecord::Schema.define(version: 20151119120521) do
 
   create_table "employees", force: :cascade do |t|
     t.string   "first_name",             limit: 255
@@ -52,17 +52,17 @@ ActiveRecord::Schema.define(version: 20151114095656) do
   end
 
   create_table "logged_hours", force: :cascade do |t|
-    t.integer  "hours",            limit: 4
+    t.integer  "hours",               limit: 4
     t.datetime "logger_date"
-    t.integer  "employee_id",      limit: 4
-    t.integer  "logged_hour_type", limit: 4
+    t.integer  "employee_id",         limit: 4
+    t.integer  "logged_hour_type_id", limit: 4
     t.datetime "logged_to_date"
     t.boolean  "period"
-    t.text     "description",      limit: 65535
+    t.text     "description",         limit: 65535
     t.datetime "logged_from_date"
-    t.integer  "project_id",       limit: 4
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.integer  "project_id",          limit: 4
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
   create_table "projects", force: :cascade do |t|

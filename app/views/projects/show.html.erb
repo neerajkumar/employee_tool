@@ -8,9 +8,21 @@
   <h1><%= @project.name -%></h1>
   <div class="row">
 
-    <div class="col-md-7 col-md-offset-1">
+    <div class="col-md-8 col-md-offset-1">
       <%= link_to "Log Work", "#", class: "btn btn-default btn-primary pull-right", data: {toggle: "modal", target: ".bs-log-work-modal-lg"} -%>
       <ul>
+	<table class="table table-bordered">
+	  <th>Logged Hour Against Company</th>
+	  <th col-span="#{@logged_hour_types.first.logged_hours.size}">Hours</th>
+	  <% for logged_hour_type in @logged_hour_types %>
+	    <tr class="denger">
+	      <td><%= logged_hour_type.name -%></td>
+	      <% for logged_hour in logged_hour_type.logged_hours %>
+		<td><%= logged_hour.hours -%></td>
+	      <% end %>
+	    </tr>
+	  <% end %>
+	</table>
 	<% for member in @members %>
 	  <li>
 	    <div class="row">

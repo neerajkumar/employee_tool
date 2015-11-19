@@ -13,8 +13,9 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @logged_hour = LoggedHour.new
+    @project = Project.find(params[:id])
+    @logged_hour_types = @project.logged_hour_types
     if current_employee.is_admin?
-      @project = Project.find(params[:id])
       @members = @project.employees.uniq
       @resource = @project.employees.new
 
